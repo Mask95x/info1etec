@@ -1,8 +1,12 @@
 current = "O";
+finish = 0;
 function old(element) {
     if (element.innerHTML != "") {
         alert("Já Preenchido");
-    } 
+    }
+    else if (finish) {
+        alert("Jogo Finalizado");
+    }
     else {
         element.innerHTML = current;
         if (current == "O") {
@@ -34,6 +38,7 @@ function winner() {
         c_3 != "" && c_5 != "" && c_7 != "" && c_3 == c_5 && c_3 == c_7
         ) {
         alert("FIM");
+        finish = 1;
     }*/
 
     //Verificação Horizontal
@@ -47,6 +52,11 @@ function winner() {
             }
         }
     }
+
+    //Verificação Vertical
+    for (let i = 0; i < tics.length; i++) {
+        
+    }
 }
 function reset() {
     var tacs = document.getElementsByClassName("tac");
@@ -54,6 +64,7 @@ function reset() {
         tacs[i].innerHTML = "";
     }
     current = "O";
+    finish = 0;
     alert("Jogo Reiniciado");
 }
 
