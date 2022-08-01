@@ -14,7 +14,7 @@ function old(element) {
     }
 }
 function winner() {
-    var c_1 = document.getElementById("c_1").innerHTML;
+    /*var c_1 = document.getElementById("c_1").innerHTML;
     var c_2 = document.getElementById("c_2").innerHTML;
     var c_3 = document.getElementById("c_3").innerHTML;
     var c_4 = document.getElementById("c_4").innerHTML;
@@ -34,13 +34,19 @@ function winner() {
         c_3 != "" && c_5 != "" && c_7 != "" && c_3 == c_5 && c_3 == c_7
         ) {
         alert("FIM");
-    }
+    }*/
 
     //Verificação Horizontal
-    /*var tics = document.getElementsByClassName("tic");
+    var tics = document.getElementsByClassName("tic");
     for (let i = 0; i < tics.length; i++) {
-        
-    }*/
+        let tacs = tics[i].children;
+        let val = tacs[0].innerHTML;
+        for (let x = 0; x < tacs.length; x++) {
+            if (tacs[x].innerHTML != "" && tacs[x].innerHTML == val && x == tacs.length - 1) {
+                alert("Vencedor: " + val);
+            }
+        }
+    }
 }
 function reset() {
     var tacs = document.getElementsByClassName("tac");
