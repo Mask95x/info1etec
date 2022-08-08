@@ -14,7 +14,6 @@ function old(element) {
         } else {
             current = "O";
         }
-        winner();
     }
 }
 function winner() {
@@ -48,15 +47,27 @@ function winner() {
         let val = tacs[0].innerHTML;
         for (let x = 0; x < tacs.length; x++) {
             if (tacs[x].innerHTML != "" && tacs[x].innerHTML == val && x == tacs.length - 1) {
+                finish = 1;
                 alert("Vencedor: " + val);
+                break;
+            }
+            else{
+                break;
             }
         }
     }
 
     //Verificação Vertical
-    for (let i = 0; i < tics.length; i++) {
-        
-    }
+    /*for (let i = 0; i < tics.length; i++) {
+        let tacs = tics[0].children;
+        let val = tacs[i].innerHTML;
+        for (let x = 0; x < tacs.length; x++) {
+            if (tacs[x].innerHTML != "" && tacs[x].innerHTML == val && x == tacs.length - 1) {
+                finish = 1;
+                alert("Vencedor: " + val);
+            }
+        }
+    }*/
 }
 function reset() {
     var tacs = document.getElementsByClassName("tac");
