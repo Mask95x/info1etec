@@ -1,7 +1,7 @@
 current = "O";
 finish = 0;
 function old(element) {
-    if (element.innerHTML != "") {
+    if (element.getAttribute("data-value") != null) {
         alert("Já Preenchido");
     }
     else if (finish) {
@@ -9,6 +9,7 @@ function old(element) {
     }
     else {
         element.innerHTML = current;
+        element.setAttribute("data-value", current)
         if (current == "O") {
             current = "X";
         } else {
@@ -44,9 +45,9 @@ function winner() {
     var tics = document.getElementsByClassName("tic");
     for (let i = 0; i < tics.length; i++) {
         let tacs = tics[i].children;
-        let val = tacs[0].innerHTML;
+        let val = tacs[0].getAttribute("data-value");
         for (let x = 0; x < tacs.length; x++) {
-            if (tacs[x].innerHTML != "" && tacs[x].innerHTML == val && x == tacs.length - 1) {
+            if (tacs[x].getAttribute("data-value") != "" && tacs[x].getAttribute("data-value") == val && x == tacs.length - 1) {
                 finish = 1;
                 alert("Vencedor: " + val);
                 break;
@@ -72,6 +73,7 @@ function winner() {
 function reset() {
     var tacs = document.getElementsByClassName("tac");
     for (let i = 0; i < tacs.length; i++) {
+        tacs[i].removeAttribute("data-value");
         tacs[i].innerHTML = "";
     }
     current = "O";
